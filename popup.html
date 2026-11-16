@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Prepostseo Scraper</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <h1>Prepostseo Scraper</h1>
+
+  <div class="stats">
+    <div><span id="count">0</span><small>records saved</small></div>
+    <div><span id="withEmail">0</span><small>with email</small></div>
+  </div>
+
+  <div class="row">
+    <button id="start" class="primary">Start Scraping</button>
+    <button id="stop" class="danger" disabled>Stop</button>
+  </div>
+
+  <label class="delay">
+    Delay between rows (ms)
+    <input id="delay" type="number" min="0" max="10000" step="50" value="50">
+  </label>
+
+  <label class="delay">
+    <span>Auto-scrape all pages</span>
+    <input id="auto" type="checkbox" checked>
+  </label>
+  <label class="delay">
+    Max pages (0 = all)
+    <input id="maxPages" type="number" min="0" max="1000" step="1" value="0">
+  </label>
+
+  <div id="status" class="status">Idle.</div>
+  <progress id="bar" value="0" max="1" hidden></progress>
+
+  <div class="row">
+    <button id="export">Export CSV</button>
+    <button id="clear" class="ghost">Clear data</button>
+    <button id="debug" class="ghost" title="Download details of rows where no email was found">Debug</button>
+  </div>
+
+  <p class="hint">With auto-scrape on, it works through every page by itself, then stops so you can export. With it off, it scrapes only the current page. Duplicates (same URL) are skipped.</p>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Dependencies & OS files
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+
+# Release artifacts (built zips)
+dist/
+*.crx
+
+# Scratch & temporary testing files
+scratch/

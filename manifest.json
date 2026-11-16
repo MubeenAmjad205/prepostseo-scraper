@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Prepostseo Directory Scraper",
+  "version": "1.1.0",
+  "description": "Extracts Category, URL, DA, PA and contact email from the Prepostseo guest posting sites directory and exports to CSV.",
+  "permissions": ["storage", "unlimitedStorage", "scripting", "activeTab", "downloads"],
+  "host_permissions": ["*://*.prepostseo.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Prepostseo Scraper",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.prepostseo.com/*"],
+      "js": [
+        "src/config.js",
+        "src/storage.js",
+        "src/extractors.js",
+        "src/modal.js",
+        "src/pagination.js",
+        "src/engine.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
